@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fighting game</title>
+
+    <style>
+
+        #container{
+            position: relative;
+        }
+
+        #health-bar-container{
+            position: absolute;
+            background-color: yellow;
+            height: 30px;
+            width: 100px;
+        }
+
+        #timer{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="health-bar-container">
+            <!-- player health -->
+            <div id="player-health"></div>
+
+            <!-- timer -->
+            <div id="timer"></div>
+
+            <!-- enemy health -->
+            <div id="enemy-health"></div>
+        </div>
+        <canvas></canvas>
+    </div>
+    
+
+    <script src="index.js"></script>
+</body>
+</html>
