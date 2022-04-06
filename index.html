@@ -7,41 +7,119 @@
     <title>Fighting game</title>
 
     <style>
+        *{
+            box-sizing: border-box;
+        }
 
         #container{
             position: relative;
+            display: inline-block;
         }
 
         #health-bar-container{
             position: absolute;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        #player-health{
             background-color: yellow;
             height: 30px;
-            width: 100px;
+            width: 100%;
+        }
+
+        #enemy-health{
+            background-color: yellow;
+            height: 30px;
+            
         }
 
         #timer{
             width: 100px;
             height: 100px;
             background-color: red;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem
         }
+
+        .health-div-player{
+            position: absolute;
+            background: blue;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+        }
+
+        .health-div-enemy{
+            position: absolute;
+            background: blue;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left:0;
+        }
+
+        .health-bar-holder-enemy{
+            position: relative;
+            height: 30px;
+            width: 100%;
+        }
+
+        .health-bar-holder-player{
+            position: relative;
+            height: 30px;
+            width: 100%;
+        }
+
+        .result{
+            position: absolute;
+            color: white;
+            font-size: 1.5rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left:0;
+        }
+
+      
+    
     </style>
 </head>
 <body>
     <div id="container">
         <div id="health-bar-container">
             <!-- player health -->
-            <div id="player-health"></div>
+            <div class="health-bar-holder-player">
+                <div id="player-health"></div>
+                <div class="health-div-player"></div>
+            </div>
 
             <!-- timer -->
             <div id="timer"></div>
 
             <!-- enemy health -->
-            <div id="enemy-health"></div>
+            <div class="health-bar-holder-enemy">
+                <div id="enemy-health"></div>
+                <div class="health-div-enemy"></div>
+            </div>
+            
         </div>
+        <div class="result">Tie</div>
         <canvas></canvas>
     </div>
     
 
+    <script src="js/utils.js"></script>
+    <script src="js/classes.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
