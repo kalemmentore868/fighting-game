@@ -1,10 +1,25 @@
-function rectangularCollision(player, enemy) {
+function rectangularCollision({ rectangle1, rectangle2 }) {
+  if (rectangle1.isEnemy) {
+    let playerLeftSide = rectangle2.position.x + 200;
+    return (
+      rectangle1.attackBox.position.x + rectangle1.attackBox.width >=
+        playerLeftSide &&
+      rectangle1.attackBox.position.x <= playerLeftSide + rectangle2.width &&
+      rectangle1.attackBox.position.y + rectangle1.attackBox.height >=
+        rectangle2.position.y &&
+      rectangle1.attackBox.position.y <=
+        rectangle2.position.y + rectangle2.height
+    );
+  }
+
   return (
-    player.attackBox.position.x + player.attackBox.width >= enemy.position.x &&
-    player.attackBox.position.x <= enemy.position.x + enemy.width &&
-    player.attackBox.position.y + player.attackBox.height >= enemy.position.y &&
-    player.attackBox.position.y <= enemy.position.y + enemy.height &&
-    player.isAttacking
+    rectangle1.attackBox.position.x + rectangle1.attackBox.width >=
+      rectangle2.position.x &&
+    rectangle1.attackBox.position.x <=
+      rectangle2.position.x + rectangle2.width &&
+    rectangle1.attackBox.position.y + rectangle1.attackBox.height >=
+      rectangle2.position.y &&
+    rectangle1.attackBox.position.y <= rectangle2.position.y + rectangle2.height
   );
 }
 
@@ -31,5 +46,7 @@ function decreaseTimer() {
 
   if (timer === 0) {
     determineWinner({ player, enemy, timerId });
+    player.dead = true;
+    enemy.dead = true;
   }
 }
